@@ -1,0 +1,9 @@
+
+<%= @competition.name %>
+<%= @competition.location %>
+<%= @competition.sport %>
+
+<% @competition.teams.each do |team| %>
+  <%= team.nickname %>
+  <%= team.hometown %>
+<% end %>
