@@ -1,0 +1,8 @@
+<% @teams.each do |team| %>
+  <%= team.nickname %>
+  <%= team.hometown %>
+  <% team.players.each do |player| %>
+    <%= player.name %>
+    <%= player.age %>
+  <% end %>
+<% end %>
