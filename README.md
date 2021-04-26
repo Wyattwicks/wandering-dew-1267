@@ -56,6 +56,8 @@ In this assessment, students will build an application to track sporting competi
 * Teams can have many players
 * Players belong to a team
 
+Some of the initial migrations and model set up has been done for you.
+
 ## User Stories
 
 ```
