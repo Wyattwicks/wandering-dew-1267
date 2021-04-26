@@ -37,10 +37,17 @@ RSpec.describe "Competition Show Page" do
     end
 
     it "I see the average age of all players in the competition" do
-      player_a = Player.create!(name: "Wallace", age: 20, team_id: @team_1.id)
-      player_b = Player.create!(name: "Jim", age: 20, team_id: @team_1.id)
-      player_c = Player.create!(name: "Pete", age: 30, team_id: @team_2.id)
-      player_d = Player.create!(name: "Gary", age: 30, team_id: @team_2.id)
+      competition_1 = Competition.create!(name: "grand open", location: "chicago", sport: "hockey")
+      team_1 = Team.create!(nickname: "Rockies", hometown: "Denver")
+      team_2 = Team.create!(nickname: "Dodgers", hometown: "Los Angeles")
+      TeamCompetition.create!(team_id: team_1.id, competition_id: competition_1.id)
+      TeamCompetition.create!(team_id: team_2.id, competition_id: competition_1.id)
+      player_a = Player.create!(name: "Wallace", age: 20, team_id: team_1.id)
+      player_b = Player.create!(name: "Jim", age: 20, team_id: team_1.id)
+      player_c = Player.create!(name: "Pete", age: 30, team_id: team_2.id)
+      player_d = Player.create!(name: "Gary", age: 30, team_id: team_2.id)
+      visit competition_path(competition_1)
+      save_and_open_page
 
       expect(page).to have_content(25)
     end
