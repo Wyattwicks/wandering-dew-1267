@@ -8,3 +8,13 @@
   <%= team.nickname %>
   <%= team.hometown %>
 <% end %>
+
+<section id="add-team">
+
+  <%= form_with url: team_competitions_path, method: :post, local: :true do |f| %>
+    <%= f.label :nickname, 'Nickname:' %><br>
+    <%= f.text_field :nickname %><br>
+    <%= f.hidden_field :competition_id, value: @competition.id %>
+    <%= f.submit 'Add Team' %>
+  <% end %>
+</section>

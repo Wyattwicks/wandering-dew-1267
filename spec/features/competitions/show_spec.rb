@@ -47,11 +47,19 @@ RSpec.describe "Competition Show Page" do
       player_c = Player.create!(name: "Pete", age: 30, team_id: team_2.id)
       player_d = Player.create!(name: "Gary", age: 30, team_id: team_2.id)
       visit competition_path(competition_1)
-      save_and_open_page
 
       expect(page).to have_content(25)
     end
 
+    it "I see a text field to add an existing team to a competition" do
+      expect(page).to have_content("Nickname:")
+      within("#add-team") do
+        fill_in "nickname", with: "The Fish"
+        click_on "Add Team"
+      end
+      expect(page).to have_content(@team_4.nickname)
+      expect(current_path).to eq(competition_path(@competition_1))
+    end
 
   end
 end
