@@ -6,5 +6,4 @@ class TeamCompetitionsController < ApplicationController
     TeamCompetition.create!(competition_id: competition.id, team_id: team.id)
     redirect_to competition_path(competition)
   end
-
 end

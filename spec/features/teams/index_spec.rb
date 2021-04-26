@@ -15,7 +15,7 @@ RSpec.describe "Team Index Page" do
       expect(page).to have_content(team_3.nickname)
       expect(page).to have_content(team_3.hometown)
     end
-
+    
     it "under each team I see the names and ages of all its players" do
       team_1 = Team.create!(nickname: "Rockies", hometown: "Denver")
       team_2 = Team.create!(nickname: "Dodgers", hometown: "Los Angeles")
@@ -35,5 +35,4 @@ RSpec.describe "Team Index Page" do
         expect(page).to have_content(player_b.age)
     end
   end
-
 end

@@ -53,6 +53,7 @@ RSpec.describe "Competition Show Page" do
 
     it "I see a text field to add an existing team to a competition" do
       expect(page).to have_content("Nickname:")
+      expect(page).to_not have_content(@team_4.nickname)
       within("#add-team") do
         fill_in "nickname", with: "The Fish"
         click_on "Add Team"
